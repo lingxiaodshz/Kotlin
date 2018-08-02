@@ -7,6 +7,9 @@ fun main(args: Array<String>): Unit {
 
     sayHello("小明")
 
+    showList()
+
+    showMap()
 }
 
 fun add(a: Int, b: Int): Int {
@@ -60,4 +63,36 @@ fun template1(place: String): String {
     return """
         今天我们去${place}游玩，离很远就看到${place}${dit2Ch(place.length)}个大字。
     """.trimIndent()
+}
+
+//Kotlin 区间
+//[1,10] 1..10
+//[1,10) 1 until 10
+
+//List
+fun showList() {
+    var list = listOf<String>("苹果", "桃子", "香蕉", "菠萝")
+    for (fruit in list) {
+        println(fruit)
+    }
+
+    for ((i, fruit) in list.withIndex()) {
+        println("$i $fruit")
+    }
+
+    println(list[2])
+    println(list.get(2))
+}
+
+//Map
+fun showMap(): Unit {
+    var fruits: HashMap<String, String> = HashMap()
+    fruits.put("apple", "苹果")
+    fruits.put("orange", "橘子")
+    fruits.put("peach", "桃子")
+    fruits.put("pineapple", "菠萝")
+
+    for ((e, f) in fruits) {
+        println("$e  $f")
+    }
 }
