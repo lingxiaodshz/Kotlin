@@ -13,6 +13,26 @@ fun main(args: Array<String>) {
     //具名参数使用（默认参数则会被用到）
     println(获取圆的面积(半径 = 2f))
 
+    //字符串和数字
+    var a = "3"
+    var b = 3
+    var c = "a3"
+    a = b.toString()
+    b = a.toInt()
+    //运行时会报错，需要先判断，暂时未找到如何判断
+//    b = c.toInt()
+
+
+    //从键盘输入读取
+    println("请输入第一个数字:")
+    // "!!"表示可以强制不为空，"?"表示可以为空
+    var num1 = readLine()!!.toInt()
+    println("请输入第二个数字:")
+    var num2 = readLine()!!.toInt()
+
+    println("$num1 + $num2 = ${num1 + num2}")
+
+
 }
 
 //函数表达式
