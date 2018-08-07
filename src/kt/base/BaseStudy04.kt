@@ -11,6 +11,15 @@ fun main(args: Array<String>) {
     //大数阶乘
     println(bigFactorial(BigInteger("5")))
     println(bigFactorial(BigInteger("50")))
+
+    //类的使用
+    var person = Person("小明", 12)
+    println("${person.name}的年龄是${person.age}")
+    var stu = Student("Jim", 15)
+    println("${stu.name}的年龄是${stu.age}")
+    var tea = Teacher("Kate", 15)
+    println("${tea.name}的年龄是${tea.age}")
+
 }
 
 // 异常处理
@@ -46,5 +55,26 @@ fun bigFactorial(n: BigInteger): BigInteger {
     if (n == BigInteger.ONE) {
         return BigInteger.ONE
     }
-    return n* bigFactorial(n- BigInteger.ONE)
+    return n * bigFactorial(n - BigInteger.ONE)
+}
+
+//类主构造方法
+//注意此处如果不加var声明，则对象无法引用构造方法中的参数
+class Person(var name: String, var age: Int)
+
+//主构造方法初始化一
+class Student(name: String, age: Int) {
+    var name: String? = name
+    var age: Int? = age
+}
+
+//主构造方法初始化二
+class Teacher(name: String, age: Int) {
+    var name: String?
+    var age: Int?
+
+    init {
+        this.name = name
+        this.age = age
+    }
 }
