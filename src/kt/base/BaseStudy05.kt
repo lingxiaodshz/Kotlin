@@ -1,5 +1,7 @@
 package kt.base
 
+import java.util.*
+
 fun main(args: Array<String>) {
     var father = Father()
     var son = Son()
@@ -11,6 +13,9 @@ fun main(args: Array<String>) {
     // 匿名内部类声明
     // 注意：匿名内部类前面一定要用object修饰，这是一个关键字
     var man = object : Man() {
+        override fun smoke() {
+        }
+
         override fun sleep() {
             println("男人站着睡")
         }
@@ -21,6 +26,20 @@ fun main(args: Array<String>) {
 
     woman.eat()
     woman.sleep()
+
+
+    // 注意：object关键字后面的区别，是否带括号
+    var beautifulWoman = object : BeautifulWoman() {
+        override fun makeup() {
+            println("女人爱化妆")
+        }
+    }
+    var bea = object : IMakeup {
+        override fun makeup() {
+
+        }
+    }
+
 }
 
 fun anonymousTest(man: Man) {
@@ -52,7 +71,8 @@ abstract class Human {
 }
 
 // 若只重写一个方法，仍需声明为抽象
-abstract class Man : Human() {
+// 注意实现接口后面没有（），继承抽象类后面有（）
+abstract class Man : Human(), ISmoke {
     override fun eat() {
         println("男人爱吃肉")
     }
@@ -66,5 +86,18 @@ class Woman : Human() {
     override fun sleep() {
         println("女人躺着睡觉")
     }
+}
 
+abstract class BeautifulWoman : IMakeup {
+
+}
+
+
+// 接口反应的是事物的能力，抽象类反应的是事物的本质
+interface ISmoke {
+    fun smoke()
+}
+
+interface IMakeup {
+    fun makeup()
 }
