@@ -8,8 +8,19 @@ fun main(args: Array<String>) {
 
     var woman = Woman()
 
-    //TODO 匿名内部类如何声明不知道
+    // 匿名内部类声明
+    // 注意：匿名内部类前面一定要用object修饰，这是一个关键字
+    var man = object : Man() {
+        override fun sleep() {
+            println("男人站着睡")
+        }
+    }
 
+    man.eat()
+    man.sleep()
+
+    woman.eat()
+    woman.sleep()
 }
 
 fun anonymousTest(man: Man) {
@@ -43,19 +54,16 @@ abstract class Human {
 // 若只重写一个方法，仍需声明为抽象
 abstract class Man : Human() {
     override fun eat() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         println("男人爱吃肉")
     }
 }
 
 class Woman : Human() {
     override fun eat() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         println("女人爱吃水果")
     }
 
     override fun sleep() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         println("女人躺着睡觉")
     }
 
